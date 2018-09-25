@@ -15,8 +15,20 @@ public class SmashTournaments
 	private boolean setWon;
 	private int placement;
 	private double moneyEarned;
+
 	
 	
+
+	public SmashTournaments(String name, int entrants, int ranking, int setCount, boolean setWon, int placement, double moneyEarned) {
+		this.name = name;
+		this.entrants = entrants;
+		this.ranking = ranking;
+		this.setCount = setCount;
+		this.setWon = setWon;
+		this.placement = placement;
+		this.moneyEarned = moneyEarned;
+	}
+
 	/**
 	 * Initializes a name instance with a value for the string.
 	 * @param name - The name of the smash tournament
@@ -25,7 +37,10 @@ public class SmashTournaments
 	{
 		this.name = name;
 	}
-	
+	/**
+	 * Initializes an instance of number for entrants
+	 * @param entrants - The amount of people to show up for an event
+	 */
 	public void setEntrants(int entrants)
 	{
 		this.entrants = entrants;
@@ -54,6 +69,7 @@ public class SmashTournaments
 	public void setMoneyEarned(double moneyEarned)
 	{
 		this.moneyEarned = moneyEarned;
+		//....
 	}
 	
 	public String getName()
@@ -91,3 +107,5 @@ public class SmashTournaments
 		return moneyEarned;
 	}
 }
+
+
