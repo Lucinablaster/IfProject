@@ -16,7 +16,10 @@ public class SmashTournaments
 	private int placement;
 	private double moneyEarned;
 
-	
+	public SmashTournaments()
+	{
+		
+	}
 	
 
 	public SmashTournaments(String name, int entrants, int ranking, int setCount, boolean setWon, int placement, double moneyEarned) {
