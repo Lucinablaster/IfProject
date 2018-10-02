@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 public class IfController
 {
 	private SmashTournaments tournament;
+
 	//public IfController()
 	//{
 	//	tournament = new SmashTournaments("kdjfkd", 2, 2, 2, 2.0, "kdjflskd", kdjfkj);
@@ -17,6 +18,7 @@ public class IfController
 	public void start()
 	{
 		askUser();
+		System.out.println(tournament);
 		//String input = JOptionPane.showInputDialog(null, "What is the name of your smash tournament?");
 		//String name = input;
 	//	tournament.setname(input);
@@ -49,9 +51,9 @@ public class IfController
 			
 		String input = JOptionPane.showInputDialog(null, "What place did you take?");
 		input = "1st";
-		while(!validInt(input))
+		while(input == null || !validInt(input) || input.equals(""))
 		{
-			input = JOptionPane.showInputDialog(null, "I see.");
+			input = JOptionPane.showInputDialog(null, "Please enter a valid integer.");
 			Integer.parseInt(input);
 		}
 		tournament.setPlacement(Integer.parseInt(input));
@@ -59,12 +61,13 @@ public class IfController
 		
 		input = JOptionPane.showInputDialog(null, "How many entrants went to that tournament?");
 		//int entrants = 1;
-		while(!validInt(input))
+		while(input == null || !validInt(input) == true || input.equals(""))
 		{
 			input = JOptionPane.showInputDialog(null,"Type in a how many entrants showed up.");
 			Integer.parseInt(input);
 		}
 		tournament.setEntrants(Integer.parseInt(input));
+		
 		
 		input = JOptionPane.showInputDialog(null, "How much money was earned for the venue?");
 		//double moneyEarned = 0;
@@ -75,20 +78,37 @@ public class IfController
 		}
 		tournament.setMoneyEarned(Double.parseDouble(input));
 		
-		
-		
-		
-		for (int index = 0; index < 10; index++)
+		input = JOptionPane.showInputDialog(null, "What were you seeded?");
+		while(!validInt(input))
 		{
-			JOptionPane.showMessageDialog(null, "This is execution number" + index);
+			input = JOptionPane.showInputDialog(null, "Enter a valid seed integer.");
+			Integer.parseInt(input);
 		}
+		tournament.setRanking(Integer.parseInt(input));
 		
 		
-		
-		for (int what = 0; what < 30; what++)
+		input = JOptionPane.showInputDialog(null, "Did you win your set?");
+		//boolean setWon = false;
+		while(!Boolean.parseBoolean(input) == true || input == null || input.equals(""))
 		{
-			JOptionPane.showMessageDialog(null, "This is number execution" + what);
+			input = JOptionPane.showInputDialog(null, "Enter true or false for answer.");
+			Boolean.parseBoolean(input);
 		}
+		tournament.setSetWon(Boolean.parseBoolean(input));
+		
+		
+		
+	//	for (int index = 0; index < 10; index++)
+	//	{
+	//		JOptionPane.showMessageDialog(null, "This is execution number" + index);
+	//	}
+	//	
+	//	
+	//	
+	//	for (int what = 0; what < 30; what++)
+	//	{
+	//		JOptionPane.showMessageDialog(null, "This is number execution" + what);
+	//	}
 		
 		
 			//do code
@@ -101,7 +121,7 @@ public class IfController
 		//	{
 		//						isFinished = true;
 		//	}
-		}
+}
 	
 	
 	
@@ -150,5 +170,14 @@ public class IfController
 			JOptionPane.showMessageDialog(null, "Type in a decimal value AKA a number with a . in the middle");
 		}
 		return isValid;
+	}
+	
+	public String toString()
+	{
+		String description = "At " + name + " you placed in the top " + placement + " of " 
+				+ entrants + " people. You were seeded " 
+				+ ranking + "th and since you placed in the top " 
+				+ placement + " you earned $" + moneyEarned/entrants + "";
+		return description;
 	}
 }
