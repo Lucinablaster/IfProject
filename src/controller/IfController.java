@@ -2,6 +2,7 @@ package controller;
 
 import model.SmashTournaments;
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 public class IfController
 {
@@ -123,7 +124,34 @@ public class IfController
 		//	}
 }
 	
-	
+	private void Array()
+	{
+		ArrayList<SmashTournaments> firstList = new ArrayList<SmashTournaments>();
+		
+		SmashTournaments sampleTournament = new SmashTournaments();
+		SmashTournaments otherTournament = new SmashTournaments();
+		
+		firstList.add(sampleTournament);
+		firstList.add(sampleTournament);
+		firstList.add(otherTournament);
+		
+		//Standard forward loop
+		for (int index = 0; index < firstList.size(); index += 1)
+		{
+			
+		}
+		
+		//Standard backward loop
+		for (int index = firstList.size() - 1; index >= 0; index -= 1)
+		{
+			
+		}
+		
+		for (SmashTournaments current : firstList)
+		{
+			JOptionPane.showMessageDialog(null,  "The tournament is named: " + current.getName());
+		}
+	}
 	
 	
 	
